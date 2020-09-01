@@ -1,16 +1,17 @@
 <div class="select">
-<mat-form-field appearance="outline">
+<mat-form-field appearance="outline" >
   <mat-label>Favorite food</mat-label>
-  <mat-select>
-    <mat-option  value='0'>some data 1</mat-option>
-    <mat-option  value='1'>some data 2</mat-option>
+  <mat-select #list (selectionChange)="sort(list.value)">
+    <mat-option  value='0'>From A to Z</mat-option>
+    <mat-option  value='1'>From Z to A</mat-option>
   </mat-select>
 </mat-form-field>
 
 
   <mat-form-field appearance="outline" >
     <mat-label>Search</mat-label>
-    <input matInput placeholder="Search something" value="">
+    <input matInput placeholder="Search something" #input (keyup.enter)="search(input.value)">
+    <mat-icon matSuffix (click)="search(input.value)">search</mat-icon>
   </mat-form-field>
 
 </div>

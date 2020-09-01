@@ -16,6 +16,13 @@ export class UsersListComponent implements OnInit {
     this.usersList = this.usersService.getUsersList();
   }
 
+search(query:string) {
+  this.usersList = this.usersService.findData(query);
+}
 
-
+sort(direction: string) {
+  console.log(direction);
+  
+  this.usersList = this.usersService.sortUsers(direction);
+}
 }
